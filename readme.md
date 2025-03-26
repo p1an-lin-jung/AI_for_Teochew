@@ -19,10 +19,14 @@
 - 1、讯飞输入法-潮汕话识别（实际是翻译）
   
     科大讯飞的讯飞输入法在2022年加入了对潮汕方言的支持，但是其噱头大于使用，实际效果可以说是极差，只能识别很日常、常规的词汇，稍微复杂一点的词，甚至是本地地名（如牌坊街、澄海、潮阳）都识别不了，反倒是对很多闽南语词汇识别的挺准。并且自推出之后从未更新过，多半只是骗补贴的应付项目。
+- 2、get 笔记（小程序、app）
+    支持27种方言的识别，是目前对潮州话识别支持最好的产品，会识别为谐音字。
+    ![image](./data/get_note.jpg)
+    ![image](./data/get_note_1.jpg)
+  
+- 3、五方联手的“家己人”识别器
 
-- 2、五方联手的“家己人”识别器
-
-    目前唯一一个可能可以期待的项目。暂未实际发布。
+    ~~目前唯一一个可能可以期待的项目。暂未实际发布~~。
     五方机构分别是：
     -   深圳广电数字科技有限公司（牵头）
     -   汕头融媒集团（即汕头电视台，提供数据和标注）
@@ -51,7 +55,7 @@
     -    目前仅限金平、龙湖两区的志愿者，而这两区作为汕头市区，其志愿者尤其是青年、青少年志愿者的方言能力退化严重，录音质量是否能得到保障？
 
 
-### 非商业产品
+### 非商业产品/作品
 
 - 1、youtube 博主 [Efficient NLP] 用[whisper微调潮州话](https://www.youtube.com/watch?v=JH_78KmP4Zk)，并发布在[huggingface](https://huggingface.co/efficient-nlp/teochew-whisper-medium)。
     
@@ -73,7 +77,7 @@
 [数字人视频链接](https://mpvideo.qpic.cn/0bc3neabwaaaciadrosiy5tva2oddnuqagya.f10002.mp4?dis_k=0ff805d3b96a7b7dbe3846304d41e0f4&dis_t=1742575244&play_scene=10120&auth_info=TcDWvN4RVA92yuuzzjFuGjRFSWFkSjtvNkojNhl2Rw5rbkAeLF8rdQduFBJ3CWI5&auth_key=5f5fc3282cf8cf43598ef41bd27787d1&vid=wxv_3744484224561381377&format_id=10002&support_redirect=0&mmversion=false) 
 
 
-## 本人参与的工作
+## 本人的工作
 
 ### 数据集
 
@@ -91,4 +95,4 @@
 
 
 ### 潮汕话正字识别-玩具项目
-用 teochew_wild 微调 whisper，实现正字的识别（非翻译为普通话），[demo](https://huggingface.co/spaces/panlr/teochew_whisper)和[模型权重](https://huggingface.co/panlr/whisper-finetune-teochew)均上传在huggingface。 目前该微调模型在teochew_wild的验证集、测试集均取得10%左右的CER；不过目前teochew的数据时长不到19个小时，仍然有许多“潮汕土语”没有覆盖，所以实际应用效果也一般。
+用 teochew_wild 微调 whisper，实现正字的识别（非翻译为普通话），[demo](https://huggingface.co/spaces/panlr/teochew_whisper)和[模型权重](https://huggingface.co/panlr/whisper-finetune-teochew)均上传在huggingface。 目前该微调模型在teochew_wild的验证集、测试集均取得10%左右的CER；不过目前teochew的数据时长不到19个小时，仍然有许多“潮汕土语”没有覆盖，所以实际应用效果也一般。~~当然huggingface space只提供免费GPU，所以推理速度特别慢，并且越来越慢，一开始20秒左右，后来100多秒~~
