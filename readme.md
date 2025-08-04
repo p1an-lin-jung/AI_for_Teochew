@@ -76,6 +76,11 @@
 
 [数字人视频链接](https://mpvideo.qpic.cn/0bc3neabwaaaciadrosiy5tva2oddnuqagya.f10002.mp4?dis_k=0ff805d3b96a7b7dbe3846304d41e0f4&dis_t=1742575244&play_scene=10120&auth_info=TcDWvN4RVA92yuuzzjFuGjRFSWFkSjtvNkojNhl2Rw5rbkAeLF8rdQduFBJ3CWI5&auth_key=5f5fc3282cf8cf43598ef41bd27787d1&vid=wxv_3744484224561381377&format_id=10002&support_redirect=0&mmversion=false) 
 
+- 4、 暨南大学汉语方言研究中心 - 潮州话语音合成
+  
+[让机器学会方言——暨南大学—科大讯飞方言语音科技联合实验室通过开题论证](https://dialects.jnu.edu.cn/2024/0318/c16917a808739/page.htm)
+
+[方言语音科技联合实验室揭牌仪式在暨南大学举行](https://dialects.jnu.edu.cn/2024/1217/c16917a827795/page.htm)
 
 ## 本人的工作
 
