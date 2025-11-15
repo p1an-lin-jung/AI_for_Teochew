@@ -22,12 +22,17 @@
 
 - 2、腾讯API
 - 新版微信语音转文字功能，支持潮汕话输入、发送文字。但如若发送的是语音消息，再点击转文字，则不支持识别。
-  ![image](./data/wechat_asr.jpg)
+        <div align="center">
+            <img src="./data/wechat_asr.jpg" width="300" />
+        </div>
 
 - get 笔记（小程序、app）
     ~~支持27种方言的识别，是目前对潮州话识别支持最好的产品，会识别为谐音字~~。
+    
     get笔记母公司本身没太强的AI模型研发能力，其语音转写能力是由腾讯云提供的服务。
-    ![image](./data/tencent_cloud.jpg)
+        <div align="center">
+            <img src="./data/tencent_cloud.jpg" width="300" />
+        </div>
   
 - 3、五方联手的“家己人”识别器
 
@@ -47,10 +52,10 @@
 
     新闻截图：
         <div align="center">
-            <img src="./data/rec_1.jpg" width="900" />
+            <img src="./data/rec_1.jpg" width="300" />
         </div>
         <div align="center">
-            <img src="./data/rec_2.jpg" width="900" />
+            <img src="./data/rec_2.jpg" width="300" />
         </div>
 
     - 2025.09.28 ，宣称已有93.6%的识别准确率，但前提是输入语音内容较为书面，实际口语识别效果折半。 [新闻 | 柯登峰团队获广电AI大赛二等奖，祝贺北语信科](https://mp.weixin.qq.com/s/qYf1QyiDzkuKL-8kmj85hw)
@@ -82,6 +87,8 @@
 [让机器学会方言——暨南大学—科大讯飞方言语音科技联合实验室通过开题论证](https://dialects.jnu.edu.cn/2024/0318/c16917a808739/page.htm)
 
 [方言语音科技联合实验室揭牌仪式在暨南大学举行](https://dialects.jnu.edu.cn/2024/1217/c16917a827795/page.htm)
+
+[暨南大学方言合成公开课](https://app7iixgnpj3504.h5.xiaoeknow.com/p/course/ecourse/course_34RqxxLAHT12KD5bSm1NR7C5b5v?https%3A%2F%2Fmhrza.xetslk.com%2Fsl%2F1x9LgU=)。 很适合作为语音合成初学者的入门课。
 
 ## 本人的工作
 
