@@ -8,8 +8,9 @@
 PC网页端访问：https://pd.qq.com/s/13fb621f2
 
 手机QQ/微信小程序端：
-![](./data/tencent_discord.jpg)
-
+        <div align="center">
+            <img src="./data/tencent_discord.jpg" width="200" />
+        </div>
 
 ## 现有工作
 
