@@ -120,3 +120,9 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 
 ### 潮汕话正字识别-玩具项目
 用 teochew_wild 微调 whisper，实现正字的识别（非翻译为普通话），[demo](https://huggingface.co/spaces/panlr/teochew_whisper)和[模型权重](https://huggingface.co/panlr/whisper-finetune-teochew)均上传在huggingface。 目前该微调模型在teochew_wild的验证集、测试集均取得10%左右的CER；不过目前teochew的数据时长不到19个小时，仍然有许多“潮汕土语”没有覆盖，所以实际应用效果也一般。~~当然huggingface space只提供免费GPU，所以推理速度特别慢，并且越来越慢，一开始20秒左右，后来100多秒~~
+
+
+
+### 潮州话-普通话发音映射分析
+
+[潮州话-普通话拼音映射分析](https://github.com/p1an-lin-jung/analyze_teochew)
