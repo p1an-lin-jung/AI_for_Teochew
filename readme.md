@@ -138,6 +138,8 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 - 首个开源的、野外的、正字标注的潮汕话数据集[teochew_wild](https://huggingface.co/datasets/panlr/teochew_wild)。 
 
     Teochew-Wild包括12500条音频片段，包含潮州市区、汕头市区、澄海、榕江音、潮安南部等多个区域的口音，声音来自20个发音标准的潮汕母语说话人，他们的身份主要是主持人、播音员、讲古艺人、自媒体博主，因此语料内容即覆盖书面用语，也包含了不少口头用语。Teochew-Wild同时提供正字和拼音标注，是首个公开可用、标注准确率高的潮州话数据集，主要面向语音识别和语音合成任务。
+
+- 潮州讲古数据集/Teochew-extLa 数据集的讲古部分。150+小时，无监督/弱监督。[teohcew_gang-gou](https://huggingface.co/datasets/panlr/teochew_gang-gou)
 - 后续工作：800+小时的大规模潮汕话无监督数据集。
 
 
