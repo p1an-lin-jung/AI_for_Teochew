@@ -18,13 +18,13 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 
 ### 论文
 
-##### [LREC-COLING 2024] [Experiments on Speech Synthesis for Teochew, Can Taiwanese Help?](https://aclanthology.org/2024.lrec-main.598.pdf) 
+##### 1、[LREC-COLING 2024] [Experiments on Speech Synthesis for Teochew, Can Taiwanese Help?](https://aclanthology.org/2024.lrec-main.598.pdf) 
 
 很幽默的一篇论文，作者尝试进行潮汕话的语音合成，却懒得做数据集，于是采用了一种方法：从在线潮汕话词典中获取单个字或词的录音文件，与数据量较大的台湾闽南语数据集混合在一起，期望通过`句子级的闽南语数据` + `字词级的潮汕话数据`，让模型学习到`句子级的潮汕话语音合成能力`，例如变调能力。
 
 最终，由于台湾闽南语和潮汕话实际差别过大，作者的设想并没成功实现。
 
-#####  基于多模态标注技术的潮汕方言语音识别系统在广电融媒体中的应用研究；作者：陈嘉,陈章华,何侠,胡俊；单位：深圳广播电影电视集团、中山大学
+#####  2、[广播电视信息-期刊]基于多模态标注技术的潮汕方言语音识别系统在广电融媒体中的应用研究；作者：陈嘉,陈章华,何侠,胡俊；单位：深圳广播电影电视集团、中山大学
 [知网论文地址](https://kns.cnki.net/kcms2/article/abstract?v=VYuoLtjwl8MGLXb2arZXsnTEt5vXRKZV0XesIFkKQRm4kF_DZ4sxYajnYJiU6CFM41rRGxQ2j7Y5dhVfokaRbWZ90UDkWStKtVcjP_ch3gkZgc5eOXnXaLQZbWQlEyNJCt-O-5q_PU55gNijDlG0YNhZ_K-ycI9o&uniplatform=NZKPT)
 
 摘要：针对方言广播电视节目难以智能化管理的问题，本文提出一套融合多模态标注技术的潮汕方言语音识别系统。该系统通过深度挖掘深圳广播电影电视集团融媒体AI实验室资源，创新性地利用汕头融媒集团方言节目（含新闻、情景剧等7类节目），首创三级自动化标注体系构建高质量方言语音数据集；基于Paraformer非自回归端到端模型实现方言精准识别，开发智能媒资管理系统实现方言内容价值挖掘；在新闻播报场景识别准确率达95%，为广电行业方言内容数字化提供完整技术路径，为方言文化保护提供技术支撑。
@@ -153,6 +153,28 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 ### 潮汕话正字识别-玩具项目
 用 teochew_wild 微调 whisper，实现正字的识别（非翻译为普通话），[demo](https://huggingface.co/spaces/panlr/teochew_whisper)和[模型权重](https://huggingface.co/panlr/whisper-finetune-teochew)均上传在huggingface。 目前该微调模型在teochew_wild的验证集、测试集均取得10%左右的CER；不过目前teochew的数据时长不到19个小时，仍然有许多“潮汕土语”没有覆盖，所以实际应用效果也一般。~~当然huggingface space只提供免费GPU，所以推理速度特别慢，并且越来越慢，一开始20秒左右，后来100多秒~~
 
+### 潮汕话-声码器（用于从梅尔频谱重构音频）
+##### 1、BigVGAN 声码器for潮州话：
+根据BigVGAN预训练权重进行微调训练，555+小时teochew-extLa数据（取dnsmos>2.8的较高质量数据），共40万 steps (约5～6个epoch)，4卡V100训练，耗时10 day，very slow；重构质量接近原音。
+
+- huggingface：https://huggingface.co/panlr/BigVGAN_22khz_teochew
+
+- modelscope：https://modelscope.cn/models/zzhway/bigvgan_v2_22khz_80band_256x_teochew
+
+
+##### 2、hifi-gan声码器for潮州话：
+训练从555+小时teochew-extLa数据（取dnsmos>2.8的较高质量数据），共400 epoch，双卡A10训练，耗时8 day；略有电音。
+
+- huggingface： https://huggingface.co/panlr/hifigan_teochew
+
+##### 3、重构质量
+| Model | DNSMOS OVRL | Training Time | Notes |
+|-------|-----------|---------------|-------|
+| BigVGAN (this) | 3.1030 | ~10 days | Fine-tuned from pretrained |
+| HiFi-GAN | 3.0724 | ~8 days | Trained from scratch |
+| Ground Truth | 3.1040 | - | - |
+
+BigVGAN 在音质上优于 HiFi-GAN (+0.0306)，几乎达到原始音频质量。
 
 
 ### 潮州话-普通话发音映射分析
