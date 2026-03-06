@@ -155,11 +155,15 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 
 ### 潮汕话-声码器（用于从梅尔频谱重构音频）
 ##### 1、BigVGAN 声码器for潮州话：
-根据BigVGAN预训练权重进行微调训练，555+小时teochew-extLa数据（取dnsmos>2.8的较高质量数据），共40万 steps (约5～6个epoch)，4卡V100训练，耗时10 day，very slow；重构质量接近原音。
+根据BigVGAN预训练权重进行微调训练，555+小时teochew-extLa数据（取dnsmos>2.8的较高质量数据），共40万 steps，4卡V100训练，耗时约10 day；重构质量接近原音。 分成 22khz和24khz两个版本：
 
-- huggingface：https://huggingface.co/panlr/BigVGAN_22khz_teochew
+- huggingface（22k）：https://huggingface.co/panlr/BigVGAN_22khz_teochew
 
-- modelscope：https://modelscope.cn/models/zzhway/bigvgan_v2_22khz_80band_256x_teochew
+- huggingface（24k）：https://huggingface.co/panlr/BigVGAN_24khz_teochew
+
+- modelscope（22k）：https://modelscope.cn/models/zzhway/bigvgan_v2_22khz_80band_256x_teochew
+
+- modelscope（24k）：https://modelscope.cn/models/zzhway/bigvgan_v2_24khz_100band_256x_teochew
 
 
 ##### 2、hifi-gan声码器for潮州话：
@@ -170,7 +174,8 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 ##### 3、重构质量
 | Model | DNSMOS OVRL | Training Time | Notes |
 |-------|-----------|---------------|-------|
-| BigVGAN (this) | 3.1030 | ~10 days | Fine-tuned from pretrained |
+| BigVGAN (24khz) | 3.1038 | ~9 days（8*V100） | Fine-tuned from pretrained |
+| BigVGAN (22khz) | 3.1030 | ~10 days（4*V100） | Fine-tuned from pretrained |
 | HiFi-GAN | 3.0724 | ~8 days | Trained from scratch |
 | Ground Truth | 3.1040 | - | - |
 
