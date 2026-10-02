@@ -185,3 +185,16 @@ BigVGAN 在音质上优于 HiFi-GAN (+0.0306)，几乎达到原始音频质量�
 ### 潮州话-普通话发音映射分析
 
 [潮州话-普通话拼音映射分析](https://github.com/p1an-lin-jung/analyze_teochew)
+
+
+## OCR Series: Foundation Infrastructure for Teochew-NLP
+
+潮语资料零散分布于各类典籍与论文，现有流传版本多为图片，难以直接电子化使用。OCR Series 基于 Kimi K3 OCR，对多部潮语著作、文献进行文本提取与整理，构建可用于潮语 NLP 研究的结构化语料，致力于将潮语从 Oral Dialect 变成 Written Language。
+
+* ✅[潮汕方言熟语辞典 OCR 语料库](https://github.com/p1an-lin-jung/Dictionary_of_Teochew_Dialect_Phraseology): 原作为 林伦伦-《潮汕方言熟语辞典》，潮拼标注， 共 2171 条潮汕方言熟语，惯用语、成语、谚语、歇后语4大类； 已人工校对书中巨量错误。
+* ✅[潮州话的声调规律和研究成果 OCR](https://github.com/p1an-lin-jung/teochew_tone_summary): 收集整理潮语变调论文，已人工校对，目前主要为：1、林伦伦：潮汕方言声调研究 （1995）；2、施其生：汕头方言连读变调的动态运行(2011)
+* ✅[《潮·普双言语词典》用字集录](https://github.com/p1an-lin-jung/Teochew_Mandarin_Bilingual_Dictionary): 原作为 陈恩泉《潮·普双言语词典》，采用陈恩泉自创拼音法标注；作者使用了大量的生僻字（约670+），来解决潮汕话有音无字的现象；已人工校对书中用字索引表；正文不开源。
+* ⚠️[新加坡闽南话词典 OCR 数字化文本](https://github.com/p1an-lin-jung/Singapore_Hokkien_Dictionary_OCR): 原作为 周长楫、周清海 《新加坡闽南话词典》，通过OCR识别，采用国际音标标注；无人工校对；共收录 5800 条新加坡闽南语词条，其中有非常多也是与潮语共享的“番词”； 缺点是书中太多使用难以识别的扩展区汉字。
+* ✅[潮汕人名集录](https://github.com/p1an-lin-jung/WhatTeochewName): 从各种公开渠道搜集潮汕人名大全， 总共45w个姓名。
+* ⚠️[集录散落各处的潮语词汇集](https://github.com/p1an-lin-jung/TeochewDispersedLexicon): 集录各处散落的潮语词汇。
+* Continues....
