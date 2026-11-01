@@ -18,13 +18,21 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 
 ### 论文
 
-##### 1、[LREC-COLING 2024] [Experiments on Speech Synthesis for Teochew, Can Taiwanese Help?](https://aclanthology.org/2024.lrec-main.598.pdf) 
+#### 1、[LREC-COLING 2024] [Experiments on Speech Synthesis for Teochew, Can Taiwanese Help?](https://aclanthology.org/2024.lrec-main.598.pdf) ；单位： 法国国立东方语言文化学院（Inalco）的ERTIM团队
 
 很幽默的一篇论文，作者尝试进行潮汕话的语音合成，却懒得做数据集，于是采用了一种方法：从在线潮汕话词典中获取单个字或词的录音文件，与数据量较大的台湾闽南语数据集混合在一起，期望通过`句子级的闽南语数据` + `字词级的潮汕话数据`，让模型学习到`句子级的潮汕话语音合成能力`，例如变调能力。
 
 最终，由于台湾闽南语和潮汕话实际差别过大，作者的设想并没成功实现。
 
-#####  2、[广播电视信息-期刊]基于多模态标注技术的潮汕方言语音识别系统在广电融媒体中的应用研究；作者：陈嘉,陈章华,何侠,胡俊；单位：深圳广播电影电视集团、中山大学
+#### 1.1、ERTIM的后续工作：
+[SPEAKABLE 2026 workshop][Leveraging Speech Models for Audio-based Lexical Retrieval in Dictionaries: the Case of the Teochew Language](https://aclanthology.org/2026.speakable-1.pdf#page=153)
+
+面向海外潮汕传承语词典 WhatTCSay 的语音词条检索，解决用户只会念而不会潮拼、不认识汉字的问题，实现直接语音输入潮语、进行词典查询的需求。
+
+利用无声调的语音标注，微调 Wav2Vec2-XLS-R-300M， 使用编辑距离匹配，做词条的匹配排序。
+
+
+####  2、[广播电视信息-期刊]基于多模态标注技术的潮汕方言语音识别系统在广电融媒体中的应用研究；作者：陈嘉,陈章华,何侠,胡俊；单位：深圳广播电影电视集团、中山大学
 [知网论文地址](https://kns.cnki.net/kcms2/article/abstract?v=VYuoLtjwl8MGLXb2arZXsnTEt5vXRKZV0XesIFkKQRm4kF_DZ4sxYajnYJiU6CFM41rRGxQ2j7Y5dhVfokaRbWZ90UDkWStKtVcjP_ch3gkZgc5eOXnXaLQZbWQlEyNJCt-O-5q_PU55gNijDlG0YNhZ_K-ycI9o&uniplatform=NZKPT)
 
 摘要：针对方言广播电视节目难以智能化管理的问题，本文提出一套融合多模态标注技术的潮汕方言语音识别系统。该系统通过深度挖掘深圳广播电影电视集团融媒体AI实验室资源，创新性地利用汕头融媒集团方言节目（含新闻、情景剧等7类节目），首创三级自动化标注体系构建高质量方言语音数据集；基于Paraformer非自回归端到端模型实现方言精准识别，开发智能媒资管理系统实现方言内容价值挖掘；在新闻播报场景识别准确率达95%，为广电行业方言内容数字化提供完整技术路径，为方言文化保护提供技术支撑。
@@ -35,7 +43,7 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 
 实验结果（指标为字错率，单位：%，数值越低效果越好）：
 
-###### 表3 针对不同年龄段人群，模型改进的效果展示
+##### 表3 针对不同年龄段人群，模型改进的效果展示
 
 | 年龄段   | Paraformer | Paraformer-DistilBERT | Paraformer-LM | Ours  |
 |----------|------------|------------------------|---------------|-------|
@@ -44,7 +52,7 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 | 45~60岁  | 15.37      | 14.05                  | 13.54         | 6.79  |
 
 
-###### 表4 针对不同节目类型，模型的改进效果展示
+##### 表4 针对不同节目类型，模型的改进效果展示
 
 | 节目类型     | Paraformer | Paraformer-DistilBERT | Paraformer-LM | Ours  |
 |--------------|------------|------------------------|---------------|-------|
@@ -54,6 +62,23 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 | 综艺小类节目 | 16.79      | 13.65                  | 12.69         | 6.09  |
 | 方言口语采访 | 17.02      | 14.09                  | 13.58         | 7.08  |
 
+##### 后续工作
+- ST-News（汕头新闻）：语音到字幕生成数据集，来源于《今日视线》节目，语料为潮汕话语音与普通话新闻字幕（并非逐字转写，而是意译；无法用于TTS）。完整 ST-News 语料约 1,004 小时，公开的仓库为约 19.70小时（其中，train / val / test划分为：18.72 h / 0.49 h / 0.48 h），取自 2017 年播出数据。
+
+    [ST-News数据集](https://huggingface.co/datasets/szcoolj/ST-News)
+
+- Teochew-Open: 是完整5小时 Teochew-Eval 的子集，共304条语句（约15.1分钟）；非逐字转写，无法用于TTS。
+    [Teochew-Open](https://huggingface.co/datasets/szcoolj/Teochew-Open)
+
+#### 3、[arxiv预印本]TeochewBench：一项经人工审阅的潮州话汉字翻译基准测试
+
+首个面向「潮汕汉字 → 普通话 / 英文」翻译的人工校验评测集，一共 300 条样本，专门用来测大模型对书面潮汕话的翻译能力，重点解决 “潮语和普通话共用汉字、字面容易重合、指标虚高” 的问题。 
+
+该工作总共构建 300 条评测样本，任务为：潮语汉字 → 普通话 / 英文；每条附带一条或多条参考译文，分为 5 大类；
+
+使用 11 个主流对话模型，两个翻译方向，产出 6600 条模型输出；再加 2 个基座模型做补充诊断，合计 13 个模型、7800 条预测。
+
+[Wu, Jianan. "TeochewBench: A Human-Reviewed Benchmark for Teochew Hanzi Translation." arXiv preprint arXiv:2609.18156 (2026)](https://arxiv.org/abs/2609.18156)
 
 ### 商业产品
 
@@ -62,22 +87,24 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
     科大讯飞的讯飞输入法在2022年加入了对潮汕方言的支持，但是其噱头大于使用，实际效果可以说是极差，只能识别很日常、常规的词汇，稍微复杂一点的词，甚至是本地地名（如牌坊街、澄海、潮阳）都识别不了，反倒是对很多闽南语词汇识别的挺准。并且自推出之后从未更新过，多半只是骗补贴的应付项目。
 
 - 2、腾讯API
-- 新版微信语音转文字功能，支持潮汕话输入、发送文字。但如若发送的是语音消息，再点击转文字，则不支持识别。
+- 新版微信语音转文字功能，支持潮汕话输入、发送文字。但如若发送的是语音消息，再点击转文字，则不支持识别； 在视频号也有自动字幕识别支持。
         <div align="center">
-            <img src="./data/wechat_asr.jpg" width="300" />
+            <img src="./data/wechat_asr.jpg" width="100" />
+        </div>
+         <div align="center">
+            <img src="./data/sph_snapshot.png" width="100" />
         </div>
 
+- hunyuan 大模型： 新版hunyuan也支持多方言的意译。
+
 - get 笔记（小程序、app）
-    ~~支持27种方言的识别，是目前对潮州话识别支持最好的产品，会识别为谐音字~~。
     
     get笔记母公司本身没太强的AI模型研发能力，其语音转写能力是由腾讯云提供的服务。
         <div align="center">
-            <img src="./data/tencent_cloud.jpg" width="300" />
+            <img src="./data/tencent_cloud.jpg" width="100" />
         </div>
   
 - 3、五方联手的“家己人”识别器
-
-    ~~目前唯一一个可能可以期待的项目。暂未实际发布~~。
     五方机构分别是：
     -   深圳广电数字科技有限公司（牵头）
     -   汕头融媒集团（即汕头电视台，提供数据和标注）
@@ -93,10 +120,10 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 
     新闻截图：
         <div align="center">
-            <img src="./data/rec_1.jpg" width="300" />
+            <img src="./data/rec_1.jpg" width="200" />
         </div>
         <div align="center">
-            <img src="./data/rec_2.jpg" width="300" />
+            <img src="./data/rec_2.jpg" width="200" />
         </div>
 
     - 2025.09.28 ，宣称已有93.6%的识别准确率，但前提是输入语音内容较为书面，实际口语识别效果折半。 [新闻 | 柯登峰团队获广电AI大赛二等奖，祝贺北语信科](https://mp.weixin.qq.com/s/qYf1QyiDzkuKL-8kmj85hw)
@@ -110,10 +137,8 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 
 - 2、 微信小程序-潮汕话翻译器
     <div align="center">
-        <img src="./data/cs_trs.jpg" width="250" />
+        <img src="./data/cs_trs.jpg" width="200" />
     </div>
-
-    <!-- ![image](./data/cs_trs.jpg =600x600) -->
     
     评分2.7。客观说，个人感觉效果比讯飞输入法和youtube博主微调的效果好
 
@@ -189,6 +214,7 @@ BigVGAN 在音质上优于 HiFi-GAN (+0.0306)，几乎达到原始音频质量�
 
 ## OCR Series: Foundation Infrastructure for Teochew-NLP
 
+
 潮语资料零散分布于各类典籍与论文，现有流传版本多为图片，难以直接电子化使用。OCR Series 基于 Kimi K3 OCR，对多部潮语著作、文献进行文本提取与整理，构建可用于潮语 NLP 研究的结构化语料，致力于将潮语从 Oral Dialect 变成 Written Language。
 
 * ✅[潮汕方言熟语辞典 OCR 语料库](https://github.com/p1an-lin-jung/Dictionary_of_Teochew_Dialect_Phraseology): 原作为 林伦伦-《潮汕方言熟语辞典》，潮拼标注， 共 2171 条潮汕方言熟语，惯用语、成语、谚语、歇后语4大类； 已人工校对书中巨量错误。
@@ -198,3 +224,6 @@ BigVGAN 在音质上优于 HiFi-GAN (+0.0306)，几乎达到原始音频质量�
 * ✅[潮汕人名集录](https://github.com/p1an-lin-jung/WhatTeochewName): 从各种公开渠道搜集潮汕人名大全， 总共45w个姓名。
 * ⚠️[集录散落各处的潮语词汇集](https://github.com/p1an-lin-jung/TeochewDispersedLexicon): 集录各处散落的潮语词汇。
 * Continues....
+
+
+带有 ⚠️ 是没有经过人工校对，纯OCR。
