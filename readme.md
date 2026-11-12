@@ -1,7 +1,7 @@
 
 # AI for Teochew
 
-本项目搜集、整理现有的将AI语音技术（主要是语音合成和语音识别）应用到潮州方言的各类工作（论文、商业产品、个人开发、数据集）。
+本项目搜集、整理现有的将AI语音技术（主要是语音合成和语音识别）应用到潮州方言的各类工作（论文、商业产品、数据集）。
 
 腾讯频道“AI潮汕话”社区，方便不翻墙情况下的交流体验。
 
@@ -131,24 +131,13 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 
 ### 非商业产品/作品
 
-- 1、youtube 博主 [Efficient NLP] 用[whisper微调潮州话](https://www.youtube.com/watch?v=JH_78KmP4Zk)，并发布在[huggingface](https://huggingface.co/efficient-nlp/teochew-whisper-medium)。
-    
-    作者从youtube的潮汕小品视频中，借助字幕切割出35小时左右的数据，对whisper进行微调，效果较差。因为数据集都是自动处理的，非常粗糙，字幕也不能完全反映潮汕话的真实说话内容。
-
-- 2、 微信小程序-潮汕话翻译器
-    <div align="center">
-        <img src="./data/cs_trs.jpg" width="200" />
-    </div>
-    
-    评分2.7。客观说，个人感觉效果比讯飞输入法和youtube博主微调的效果好
-
-- 3、 北京语言大学 - 语音合成系统
+- 1、 北京语言大学 - 语音合成系统
 
 [新闻｜科技赋能语言和文化——我校信息科学学院教师柯登峰及其研究团队发布创新研究成果](https://mp.weixin.qq.com/s/0WTkTXHCdZJCIcNfL2sdrA)
 
 [数字人视频链接](https://mpvideo.qpic.cn/0bc3neabwaaaciadrosiy5tva2oddnuqagya.f10002.mp4?dis_k=0ff805d3b96a7b7dbe3846304d41e0f4&dis_t=1742575244&play_scene=10120&auth_info=TcDWvN4RVA92yuuzzjFuGjRFSWFkSjtvNkojNhl2Rw5rbkAeLF8rdQduFBJ3CWI5&auth_key=5f5fc3282cf8cf43598ef41bd27787d1&vid=wxv_3744484224561381377&format_id=10002&support_redirect=0&mmversion=false) 
 
-- 4、 暨南大学汉语方言研究中心 - 潮州话语音合成
+- 2、 暨南大学汉语方言研究中心 - 潮州话语音合成
   
 [让机器学会方言——暨南大学—科大讯飞方言语音科技联合实验室通过开题论证](https://dialects.jnu.edu.cn/2024/0318/c16917a808739/page.htm)
 
