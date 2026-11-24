@@ -161,11 +161,21 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 
 - [pyPengIm](https://github.com/p1an-lin-jung/teochew-g2p): 首个开源的潮汕话文本处理工具，主要支持`汉字转拼音`、`口音转换`、`多音字消歧`、`普通话转潮汕话`、 `潮州拼音转音素`、`潮州拼音转国际音标`、`单字查询`等功能。是开发[teochew_wild](https://huggingface.co/datasets/panlr/teochew_wild)过程中的附属产品。
 
+- [g2pW-teochew]()
+
 - [歹看正字法(PKO)](https://github.com/p1an-lin-jung/teochew-g2p/tree/master/doc/readme.md)：以现有的专家方案和谐音字为基础进行改进，得到的一个潮汕话正字方案，主要设计目的是，尽可能做到`减少多音字`、`解决有音无字问题`、`解决与普通话词义冲突`，最终为 **pyPengIm** 工具服务。
 
 
 ### 潮汕话正字识别-玩具项目
-用 teochew_wild 微调 whisper，实现正字的识别（非翻译为普通话），[demo](https://huggingface.co/spaces/panlr/teochew_whisper)和[模型权重](https://huggingface.co/panlr/whisper-finetune-teochew)均上传在huggingface。 目前该微调模型在teochew_wild的验证集、测试集均取得10%左右的CER；不过目前teochew的数据时长不到19个小时，仍然有许多“潮汕土语”没有覆盖，所以实际应用效果也一般。~~当然huggingface space只提供免费GPU，所以推理速度特别慢，并且越来越慢，一开始20秒左右，后来100多秒~~
+用 teochew_wild 微调 whisper，实现正字的识别（非翻译为普通话），[demo](https://huggingface.co/spaces/panlr/teochew_whisper)和[模型权重](https://huggingface.co/panlr/whisper-finetune-teochew)均上传在huggingface。 目前该微调模型在teochew_wild的验证集、测试集均取得10%左右的CER；不过目前teochew的数据时长不到19个小时，仍然有许多“潮汕土语”没有覆盖，所以实际应用效果也一般。
+
+
+### 基于fun-cosyvoice3、强化学习与teochew-extLa数据的语音合成模型
+[CosyVoice3-Teochew-TTS](https://huggingface.co/panlr/CosyVoice3-Teochew-TTS-SFT-DPO-GRPO-RFT): 基于 Fun-CosyVoice3-0.5B 基座多轮后训练的潮汕话语音合成模型，结合TN（wetext）与G2P（g2pW-teochew）工具，支持汉字输入、潮拼输入、潮普混讲（<zh> 标签），基座自带任意音色克隆能力。 模型基于teochew-wild（全量） + teochew-extLa（筛选400+小时） + 补充录制的音频，并以Qwen3-ASR（潮拼版）作为音频质量筛选模型与奖励策略的评分模型，进行4轮后训练（SFT、DPO、GRPO、RFT），使 CosyVoice3 具备一定的潮汕话语音合成能力和稳定性；同时验证了TTS预训练模型后训练以合成方言的能力与实践路径（语义型token + in-the-wild data + RL + 奖励策略）
+
+* 局限性：变调、韵律、停顿不稳定；普通话、英语的合成能力下降。
+
+
 
 ### 潮汕话-声码器（用于从梅尔频谱重构音频）
 ##### 1、BigVGAN 声码器for潮州话：
@@ -184,16 +194,6 @@ PC网页端访问：https://pd.qq.com/s/13fb621f2
 训练从555+小时teochew-extLa数据（取dnsmos>2.8的较高质量数据），共400 epoch，双卡A10训练，耗时8 day；略有电音。
 
 - huggingface： https://huggingface.co/panlr/hifigan_teochew
-
-##### 3、重构质量
-| Model | DNSMOS OVRL | Training Time | Notes |
-|-------|-----------|---------------|-------|
-| BigVGAN (24khz) | 3.1038 | ~9 days（8*V100） | Fine-tuned from pretrained |
-| BigVGAN (22khz) | 3.1030 | ~10 days（4*V100） | Fine-tuned from pretrained |
-| HiFi-GAN | 3.0724 | ~8 days | Trained from scratch |
-| Ground Truth | 3.1040 | - | - |
-
-BigVGAN 在音质上优于 HiFi-GAN (+0.0306)，几乎达到原始音频质量。
 
 
 ### 潮州话-普通话发音映射分析
